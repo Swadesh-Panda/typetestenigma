@@ -19,7 +19,8 @@ export default function Result() {
         if (r) correctChars += wordList[idx].length;
     });
     const wpm = ((correctChars + spaces) * 60) / timeLimit / 5;
-    const score = Math.round(wpm) + result.filter((x) => x).length - result.filter((x) => !x).length
+    const accuracy = Math.round((result.filter((x) => x).length/ (result.filter((x) => x).length + result.filter((x) => !x).length))*100)
+    const score = (Math.round(wpm) * accuracy) /100
 
     const { player, setPlayer } = useContext(PlayerContext)
 
@@ -43,18 +44,18 @@ export default function Result() {
                         <th>Words Per Minute:</th>
                         <td>+ {Math.round(wpm)}</td>
                     </tr>
-                    <tr>
+                    <tr className="wrong" >
                         <th>Correct Words:</th>
                         <td>+ {result.filter((x) => x).length}</td>
                     </tr>
-                    <tr>
+                    <tr style={{color:'red'}} >
                         <th>Incorrect Words:</th>
                         <td>- {result.filter((x) => !x).length}</td>
                     </tr>
 
                     <tr>
                         <td colSpan={2} align="center">
-                            <h1>Player Score = {localStorage.getItem(`score_${player.number}`)}</h1>
+                            <h1>{Math.round(wpm)}wpm * {accuracy}% = {localStorage.getItem(`score_${player.number}`)}</h1>
                         </td>
                     </tr>
                     {player.number !== 3 &&
