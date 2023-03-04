@@ -91,9 +91,9 @@ export default function Result() {
                             <tr>
                                 <td colSpan={2} className="wrong" align="center">
                                     <h1>Total Score = {
-                                        parseInt(localStorage.getItem("score_1") || "0") +
-                                        parseInt(localStorage.getItem("score_2") || "0") +
-                                        parseInt(localStorage.getItem("score_3") || "0")
+                                        parseFloat(localStorage.getItem("score_1") || "0") +
+                                        parseFloat(localStorage.getItem("score_2") || "0") +
+                                        parseFloat(localStorage.getItem("score_3") || "0")
                                     }</h1>
                                 </td>
                             </tr>
