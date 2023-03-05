@@ -27,7 +27,7 @@ const LockScreen = ({setLock}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (code1 + code2 + code3 === '345') {
+        if (code1 + code2 + code3 === '107321963') {
             setCheck(true);
             console.log('unlocked');
             localStorage.setItem('token', 'unlocked')
@@ -48,9 +48,9 @@ const LockScreen = ({setLock}) => {
                 <h1 className='wrong' >WRONG CODE</h1>
             }
             <div>
-                <input className='input' type="text" name="Code" id="field" placeholder='0' maxLength={1} value={code1} onChange={handleChange1} />
-                <input className='input' type="text" name="Code" id="field" placeholder='0' maxLength={1} value={code2} onChange={handleChange2} />
-                <input className='input' type="text" name="Code" id="field" placeholder='0' maxLength={1} value={code3} onChange={handleChange3} />
+                <input className='input' type="text" name="Code" id="field" placeholder='000' maxLength={3} value={code1} onChange={handleChange1} />
+                <input className='input' type="text" name="Code" id="field" placeholder='000' maxLength={3} value={code2} onChange={handleChange2} />
+                <input className='input' type="text" name="Code" id="field" placeholder='000' maxLength={3} value={code3} onChange={handleChange3} />
             </div>
             <button className='submit' type="submit" onClick={handleSubmit} >Submit</button>
         </div>
