@@ -28,7 +28,7 @@ interface AnimationProps {
 }
 
 export const options: Options = {
-    time: [60],
+    time: [75],
     // theme: [
     //     "default",
     //     "mkbhd",
@@ -71,7 +71,7 @@ export default function Header() {
     useEffect(() => {
         const theme = localStorage.getItem("theme") || "default";
         const type = localStorage.getItem("type") || "sentences";
-        const time = parseInt(localStorage.getItem("time") || "60", 10);
+        const time = parseInt(localStorage.getItem("time") || "75", 10);
         import(`wordlists/${type}.json`).then((words) =>
             dispatch(setWordList(words.default))
         );
